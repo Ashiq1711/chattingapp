@@ -123,7 +123,7 @@ const Signup = () => {
       <div className="md:w-2/4 w-full pl-[100px] pr-[100px] md:flex md:justify-end mr-10  mt-[50px] lg:p-0  ">
         <div className=" relative ">
           <h1 className="font-nunito text-[35px] font-bold text-color1 ">
-            Get started with easily register
+            Get started with easily register...
           </h1>
           <p className="font-nunito text-[20px] mt-[14px] text-color1 ">
             Free register and you can enjoy it
