@@ -8,7 +8,7 @@ import { getAuth, signInWithEmailAndPassword,  signInWithPopup, GoogleAuthProvid
 import Modal from "../components/Modal";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux";
-import { userlogininfo } from "../slices/userSlices";
+import { userLoginInfo } from "../slices/userSlices";
 function Login() {
   let dispatch = useDispatch()
   const auth = getAuth();
@@ -47,7 +47,9 @@ function Login() {
   if(email && password){
     signInWithEmailAndPassword(auth, email, password)
     .then((user) => {
+     
       dispatch(userlogininfo(user.user));
+      localStorage.setItem('userinfo',JSON.stringify(user.user));
       toast('Sign up successfully!', {
         position: "top-right",
         autoClose: 5000,

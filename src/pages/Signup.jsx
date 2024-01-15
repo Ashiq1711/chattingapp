@@ -48,7 +48,8 @@ const Signup = () => {
       setPassworderr("Password is required !");
     } else if (
       !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password)
-    ) {
+    ) 
+    {
       setPassworderr(
         "Minimum eight length,one special character and one number !"
       );
@@ -76,8 +77,6 @@ const Signup = () => {
           });
           sendEmailVerification(auth.currentUser)
             .then(() => {
-              localStorage.setItem("lastname", "Smith");
-
               updateProfile(auth.currentUser, {
                 displayName: name,
                 photoURL: "public/profile.png",
@@ -200,15 +199,18 @@ const Signup = () => {
               </button>
             </div>
           ) : (
-            <button
-              onClick={handle_submit}
-              className=" text-[20px] font-semibold font-nunito w-full h-[62px] md:w-[368px] md-h-[80px] rounded-[86px] mt-[52px] text-white bg-color2 "
-            >
-              Sign up
-            </button>
+            <div className="w-full h-[62px] md:w-[368px] md-h-[80px] text-center">
+              
+              <button
+                onClick={handle_submit}
+                className=" text-[20px] font-semibold font-nunito w-full h-[62px] md:w-[368px] md-h-[80px] rounded-[86px] mt-[52px] text-white bg-color2 "
+              >
+                Sign up
+              </button>
+            </div>
           )}
 
-          <div className=" w-full h-[62px] md:w-[368px] md-h-[80px] text-center">
+          <div className=" w-full h-[62px] md:w-[368px] md-h-[80px] text-center mt-[85px]">
             <p className=" mt-4 ">
               Already have an account ?{" "}
               <Link to="/login" className="text-[#EA6C00] ">

@@ -77,7 +77,7 @@ theme="dark"
         :
 
             <div className='relative  bg-white flex-col gap-5 mx-4 px-20 pb-10 pt-20 item-center  rounded-xl'>
-            <button onClick={onClose} className=' absolute right-0 top-0  text-red-500'><XCircle size={40}/></button>
+            <button onClick={onClose} className=' absolute right-0 top-0 hover:text-white hover:rounded-full  hover:bg-red-500'><XCircle size={40}/></button>
                 <h1 className='text-3xl font-poppins text-color1'>Reset Password</h1>
                 <div className='mt-[20px]  h-[90px] '>
 
