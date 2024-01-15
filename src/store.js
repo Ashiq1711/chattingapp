@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import  userLoginInfo  from './slices/userSlices'
+import  userlogininfo  from './slices/userSlices'
 
 export default configureStore({
   reducer: {
-    userlogininfo: userLoginInfo
-  },
+    userlogininfo : userlogininfo
+    
+
+  }
 })

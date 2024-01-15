@@ -9,27 +9,26 @@ import BlockedUsers from '../components/BlockedUsers'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { userLoginInfo } from '../slices/userSlices'
+import { userlogininfo } from '../slices/userSlices'
+
 
 function Home() {
-  // const dispatch=useDispatch()
+  let dispatch=useDispatch()
   const auth = getAuth();
 let navigate=useNavigate()
 const data = useSelector((state)=>state.userlogininfo.userinfo)
-
 useEffect(()=>{
 if(data == 'null'){
   navigate('/login')
 }
 },[]);
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     dispatch(userlogininfo(user));
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    dispatch(userlogininfo(user))
+  } else {
 
-//   } else {
-
-//   }
-// });
+  }
+});
 
   return (
     <>

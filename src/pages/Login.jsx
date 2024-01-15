@@ -8,7 +8,7 @@ import { getAuth, signInWithEmailAndPassword,  signInWithPopup, GoogleAuthProvid
 import Modal from "../components/Modal";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux";
-import { userLoginInfo } from "../slices/userSlices";
+import { userlogininfo } from "../slices/userSlices";
 function Login() {
   let dispatch = useDispatch()
   const auth = getAuth();
