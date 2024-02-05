@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
-import {PropagateLoader} from "react-spinners"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getAuth, signInWithEmailAndPassword,  signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -9,7 +8,11 @@ import Modal from "../components/Modal";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { userlogininfo } from "../slices/userSlices";
+import { getDatabase, ref, set } from "firebase/database";
+
 function Login() {
+  const db = getDatabase();
+
   let dispatch = useDispatch()
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
@@ -80,7 +83,12 @@ function Login() {
 let handle_google=()=>{
   signInWithPopup(auth, provider)
   .then((result) => {
-   
+  console.log(result);
+    set(ref(db, 'users/' + result.user.uid), {
+      username: result.user.displayName,
+      email: result.user.email,
+      profile_picture : result.user.photoURL,
+    })
       setTimeout(() => {
         
         navigate("/home")

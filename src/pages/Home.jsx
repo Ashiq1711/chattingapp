@@ -25,6 +25,7 @@ if(data == 'null'){
 onAuthStateChanged(auth, (user) => {
   if (user) {
     dispatch(userlogininfo(user))
+
   } else {
 
   }
@@ -32,7 +33,7 @@ onAuthStateChanged(auth, (user) => {
 
   return (
     <>
-    {data.emailVarified ? 
+    {data.emailVerified ? 
     
     <div className='flex justify-between  '>
 

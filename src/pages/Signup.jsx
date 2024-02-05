@@ -11,8 +11,12 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { getDatabase, ref, set } from "firebase/database";
+
 const Signup = () => {
   const auth = getAuth();
+  const db = getDatabase();
+
   let navigate = useNavigate();
   let [email, setEmail] = useState("");
   let [name, setName] = useState("");
@@ -64,6 +68,11 @@ const Signup = () => {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then((user) => {
+set(ref(db, 'users/' + user.user.uid), {
+    username: name,
+    email: email,
+    profile_picture : 'public/google.png'
+  });
           setLoader(true);
           toast("Sign up successfully!", {
             position: "top-right",
