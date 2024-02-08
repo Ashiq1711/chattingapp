@@ -33,7 +33,7 @@ remove(ref(db, 'friendrequest/'+ item.id ))
   }
   return (
    <>
-    <div className='p-5 shadow-xl rounded-2xl '>
+    <div className='p-5 shadow-xl rounded-2xl mt-8 '>
       <div className='flex justify-between'>
         <h1 className='font-poppins font-semibold text-[18px]'>Friend Request</h1>
         <AiOutlineMore className='text-[22px] text-color2' />

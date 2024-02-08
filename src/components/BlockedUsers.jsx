@@ -61,9 +61,12 @@ let handle_unblock=(item)=>{
           <h1 className='font-poppins font-semibold text-[18px]'>{item.blockby}</h1>
           <p className='font-poppins font-medium text-[14px] text-[#4D4D4D]'>Hi Guys, Wassup!</p>
         </div><div>
-{item.blockid && 
+{item.blockid ?
 
-          <button onClick={()=>handle_unblock(item)} className='rounded-md px-4 py-2 text-white font-poppins  text-[20px] bg-color2'>Unblock</button>
+<button onClick={()=>handle_unblock(item)} className='rounded-md px-4 py-2 text-white font-poppins  text-[20px] bg-color2'>Unblock</button>
+:
+
+          <button className='rounded-md px-4 py-2 text-red-400 font-poppins  text-[20px] bg-gray-300'>Blocked</button>
 }
         </div>
       </div>
